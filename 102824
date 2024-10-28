@@ -1,0 +1,18 @@
+//Memory looks like this
+「　　　　　　　　                   0x0...0        
+       Operating System               
+ ----------------------------                 
+             Code
+ ----------------------------                
+ Data (global vars/constants)           
+ ----------------------------           
+  Heap(malloc), sbrk, mmap               
+              ↓        
+              .        
+              .        
+              .        
+              .       
+              ↑       
+  Stack (command line, arg)             
+                              」  0xF...F
+
