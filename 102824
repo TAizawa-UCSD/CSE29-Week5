@@ -16,3 +16,4 @@
   Stack (command line, arg)             
                               」  0xF...F
 
+valgrind ./jstr : to get memory leaks
