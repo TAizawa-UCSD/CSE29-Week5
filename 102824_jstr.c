@@ -32,10 +32,21 @@ String plus(String s1, String s2) {
 
 String join(String strs[], int count, String delimiter) {
     String s = new_String("");
+    
     for(int i = 0; i < count; i += 1) {
+
+        char* old_contents = s.contents;            //new
+        
         s = plus(s, strs[i]);
+
+        free(oldcontents);            //new
         if(i < count - 1) {
+
+            char* old_contents = s.contents;            //new
+            
             s = plus(s, delimiter);
+
+            free(oldcontents);            //new
         }
     }
     return s;
@@ -50,4 +61,9 @@ int main() {
     String comma = new_String(", ");
     String fruitlist = join(fruit, 3, comma);
     printf("%s\n", fruitlist.contents);
+
+    free(apple.contents);            //new
+    free(banana.contents);            //new
+    free(strawberry.contents);            //new
+    
 }
