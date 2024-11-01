@@ -1,0 +1,35 @@
+jstr.c (refers to data type in jstr.h)
+  #include "./jstr.h"
+  String new_String(char* s){
+    malloc...
+    return
+  }
+
+
+jstr.h
+  #ifndef JSTR_H
+  #define JSTR_H
+  struct String{...}
+  String new_String(char* init); <- this is just the type of new_String
+  #endif
+
+arraylist.c (refers to data type in jstr.h)
+  #include "./jstr.h"
+  struct List{
+    ... String* contents...
+  }
+  void append(){...}
+  int main(){
+    ...
+    new_String(...)
+    return;
+  }
+
+
+malloc(size) : allocates size bytes + returns ptr
+calloc(count, size) : allocates count*size bytes + returns ptr
+free(ptr) : expects ptr came from (m/c)alloc and mark that memory as reusable.
+
+realloc(ptr,size) : creates new memory of size bytes, copies ptr's memory there, returns ptr to new space, and free the old space.
+                    BONUS feature : sometimes it's not a new address.
+
