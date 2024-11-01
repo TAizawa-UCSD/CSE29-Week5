@@ -6,7 +6,7 @@
 struct List {
     uint32_t size;
     uint32_t capacity;
-    String* contents;
+    String* contents;        //Let's make a list of String!
 };
 typedef struct List List;
 
@@ -22,6 +22,7 @@ void expandCapacity(List* a) {
     a->contents = new_ptr;
 }
 
+// if a is not a pointer, a is a copy, so the changes won't be reflected in the caller.
 void append1(List *a, String value) {
     if(a->size + 1 == a->capacity) {
         expandCapacity(a);
