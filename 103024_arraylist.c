@@ -22,16 +22,20 @@ void expandCapacity(List* a) {
     a->contents = new_ptr;
 }
 
-void expandCapacity_inClass(){
+void expandCapacity_inClass(List* a){
     //allocate more memories
-    uint32_t new_cap = a->capacity * 2;
-    String* contents = calloc(new_cap, sizeof(String));
+    uint32_t new_cap = a->capacity + 1;
+    
+    String* new_contents = calloc(new_cap, sizeof(String));
 
     //copy over contents
-    memcpy(contents, a->the_actual_data, a->capacity * sizeof(String));
+    memcpy(new_contents, a->contents, a->capacity * sizeof(String));
 
     //free up the old
-    free(a->the_actual_data);
+    free(a->contents);
+
+    a->capacity = new_cap;
+    a->contents = new_contents;
 }
 
 // if a is not a pointer, a is a copy, so the changes won't be reflected in the caller.
